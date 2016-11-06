@@ -1,0 +1,449 @@
+FORMAT: 1A
+HOST: https://maps.googleapis.com/maps/api/geocode/
+
+# Google-map-geocoder
+
+The Google Maps Geocoding API is a service that provides geocoding and reverse geocoding of addresses.
+
+Geocoding is the process of converting addresses (like a street address) into geographic coordinates (like latitude and longitude), which you can use to place markers on a map, or position the map.
+
+Reverse geocoding is the process of converting geographic coordinates into a human-readable address. The Google Maps Geocoding API's reverse geocoding service also lets you find the address for a given place ID.
+
+## Authentication
+
+#### Activate the API and get an API key
+
+To use the Google Maps Geocoding API, you must first activate the API in the Google API Console and obtain the proper authentication credentials. You need to provide an API key in each request
+
+For API Key
+https://developers.google.com/maps/documentation/geocoding/start#get-a-key
+
+## Geocoding request and response  [/json?address={address}&key={key}]
+
+The following example requests the latitude and longitude of "1600 Amphitheatre Parkway, Mountain View, CA"
+
+
+## Geocoding request[GET]
++ Response 200 (application/json)
+
+"results" : [
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Delhi",
+               "short_name" : "DL",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Delhi, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 28.8813379,
+                  "lng" : 77.34845780000001
+               },
+               "southwest" : {
+                  "lat" : 28.4125929,
+                  "lng" : 76.8380689
+               }
+            },
+            "location" : {
+               "lat" : 28.7040592,
+               "lng" : 77.10249019999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 28.8813379,
+                  "lng" : 77.34845780000001
+               },
+               "southwest" : {
+                  "lat" : 28.4125929,
+                  "lng" : 76.8380689
+               }
+            }
+         },
+         "place_id" : "ChIJLbZ-NFv9DDkRQJY4FbcFcgM",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Delhi",
+               "short_name" : "Delhi",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Delhi",
+               "short_name" : "DL",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Delhi, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 28.8828399,
+                  "lng" : 77.3448799
+               },
+               "southwest" : {
+                  "lat" : 28.5019699,
+                  "lng" : 76.8378199
+               }
+            },
+            "location" : {
+               "lat" : 28.6618976,
+               "lng" : 77.2273958
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 28.8828399,
+                  "lng" : 77.3448799
+               },
+               "southwest" : {
+                  "lat" : 28.5019699,
+                  "lng" : 76.8378199
+               }
+            }
+         },
+         "place_id" : "ChIJL_P_CXMEDTkRw0ZdG-0GVvw",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
+]
+
+## Reverse Geocoding request and response  [/json?latlng={latitude,longitude}&key={key}]
+
+The following example requests the address corresponding to a given latitude/longitude in Brooklyn, NY, USA. 
+
+
+### Reverse Geocoding request[GET]
++ Response 200 (application/json)
+
+
+"results" : [
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Karo Road",
+               "short_name" : "Karo Rd",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Chitbaragaon",
+               "short_name" : "Chitbaragaon",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Ballia",
+               "short_name" : "Ballia",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Uttar Pradesh",
+               "short_name" : "UP",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "221713",
+               "short_name" : "221713",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Karo Rd, Chitbaragaon, Uttar Pradesh 221713, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 25.7325868,
+                  "lng" : 83.9708371
+               },
+               "southwest" : {
+                  "lat" : 25.7167599,
+                  "lng" : 83.9623598
+               }
+            },
+            "location" : {
+               "lat" : 25.7210925,
+               "lng" : 83.96276060000001
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 25.7325868,
+                  "lng" : 83.9708371
+               },
+               "southwest" : {
+                  "lat" : 25.7167599,
+                  "lng" : 83.9623598
+               }
+            }
+         },
+         "place_id" : "ChIJDVUSVYJykjkRfo51t-OPbvM",
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Karown",
+               "short_name" : "Karown",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Ballia",
+               "short_name" : "Ballia",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Uttar Pradesh",
+               "short_name" : "UP",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "221713",
+               "short_name" : "221713",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Karown, Uttar Pradesh 221713, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 25.72922,
+                  "lng" : 83.97355
+               },
+               "southwest" : {
+                  "lat" : 25.7042499,
+                  "lng" : 83.93831999999999
+               }
+            },
+            "location" : {
+               "lat" : 25.7184389,
+               "lng" : 83.96119639999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 25.72922,
+                  "lng" : 83.97355
+               },
+               "southwest" : {
+                  "lat" : 25.7042499,
+                  "lng" : 83.93831999999999
+               }
+            }
+         },
+         "place_id" : "ChIJQf6oyplykjkRyHFQimSM-M0",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "221713",
+               "short_name" : "221713",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Uttar Pradesh",
+               "short_name" : "UP",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Uttar Pradesh 221713, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 25.8016601,
+                  "lng" : 84.0324224
+               },
+               "southwest" : {
+                  "lat" : 25.701408,
+                  "lng" : 83.930601
+               }
+            },
+            "location" : {
+               "lat" : 25.7400533,
+               "lng" : 83.98500799999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 25.8016601,
+                  "lng" : 84.0324224
+               },
+               "southwest" : {
+                  "lat" : 25.701408,
+                  "lng" : 83.930601
+               }
+            }
+         },
+         "place_id" : "ChIJ-2CsnZhtkjkR5fw0Ww7OMsY",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Ballia",
+               "short_name" : "Ballia",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Uttar Pradesh",
+               "short_name" : "UP",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Ballia, Uttar Pradesh, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 26.1907499,
+                  "lng" : 84.630539
+               },
+               "southwest" : {
+                  "lat" : 25.5605922,
+                  "lng" : 83.67927999999999
+               }
+            },
+            "location" : {
+               "lat" : 25.8307174,
+               "lng" : 84.1857115
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 26.1907499,
+                  "lng" : 84.630539
+               },
+               "southwest" : {
+                  "lat" : 25.5605922,
+                  "lng" : 83.67927999999999
+               }
+            }
+         },
+         "place_id" : "ChIJ33nw5mxlkjkRlmddK1ycQZM",
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Uttar Pradesh",
+               "short_name" : "UP",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Uttar Pradesh, India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 30.411635,
+                  "lng" : 84.671527
+               },
+               "southwest" : {
+                  "lat" : 23.870839,
+                  "lng" : 77.0924369
+               }
+            },
+            "location" : {
+               "lat" : 26.8467088,
+               "lng" : 80.9461592
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 30.411635,
+                  "lng" : 84.671527
+               },
+               "southwest" : {
+                  "lat" : 23.870839,
+                  "lng" : 77.0924369
+               }
+            }
+         },
+         "place_id" : "ChIJ0wlKe59OmTkRnSQXNm1HpfY",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "India",
+               "short_name" : "IN",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "India",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 35.5087008,
+                  "lng" : 97.395561
+               },
+               "southwest" : {
+                  "lat" : 6.7535159,
+                  "lng" : 68.1623859
+               }
+            },
+            "location" : {
+               "lat" : 20.593684,
+               "lng" : 78.96288
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 35.5087008,
+                  "lng" : 97.395561
+               },
+               "southwest" : {
+                  "lat" : 6.7535159,
+                  "lng" : 68.1633666
+               }
+            }
+         },
+         "place_id" : "ChIJkbeSa_BfYzARphNChaFPjNc",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
+]
